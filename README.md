@@ -28,4 +28,4 @@ and [epiweeks](https://pypi.org/project/epiweeks/) for Python).
 ## Acknowledgments
 
 This repository follows the guidelines and standards outlined by [the
-[hubverse](https://hubverse.io), which provides a set of data formats and open source tools for modeling hubs.
+hubverse](https://hubverse.io), which provides a set of data formats and open source tools for modeling hubs.
