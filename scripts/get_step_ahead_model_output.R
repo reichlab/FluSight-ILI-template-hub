@@ -11,12 +11,11 @@ step_ahead_model_output <- hub_con |>
   dplyr::filter(
     model_id %in% model_names,
     target == "ili perc",
-    output_type %in% c("mean", "cdf")
+    output_type == "cdf"
   ) |>
   hubData::collect_hub() |>
   dplyr::mutate(
-    output_type_id = as.numeric(output_type_id),
-    value = case_when(output_type == "cdf" ~ min(value, 1), .default = value)
+    output_type_id = as.numeric(output_type_id)
   )
 
 # save all the component models in hubverse format
@@ -43,14 +42,20 @@ model_dates_df |>
           location = split_outputs$location[1],
           horizon = split_outputs$horizon[1],
           target = split_outputs$target[1],
-          origin_epiweek = split_outputs$origin_epiweek[1],
           output_type = "quantile",
           output_type_id = quantile_levels
         ) |>
-          mutate(value = cdf_to_quantiles(split_outputs, quantile_levels, "output_type_id", "value"))
+          mutate(value = cdf_to_quantiles(cdf_df = split_outputs,
+                                          quantile_probs = quantile_levels,
+                                          x_col = "output_type_id",
+                                          cdf_col = "value"))
       }) |>
-      purrr::list_rbind()
-    print(quantile_outputs)
+      purrr::list_rbind() |>
+      mutate(target_end_date = origin_date + 7 * horizon) |>
+      select(origin_date, location, target,
+             horizon, target_end_date,
+             output_type, output_type_id, value)
+    ## print(quantile_outputs)
 
     utils::write.csv(quantile_outputs, file = results_path, row.names = FALSE)
   })
