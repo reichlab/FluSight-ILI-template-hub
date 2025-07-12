@@ -1,12 +1,14 @@
-# FluSight ILI Template Hub
+# FluSight ILI Sandbox Hub Template
 
-A template hub of forecasts based on the original [FluSight Challenge](https://github.com/cdcepi/FluSight-forecasts) run by the CDC. All data and the repository structure have been formatted according to hubverse standards.
+A template of a Sandbox hub of forecasts based on the original [FluSight Challenge](https://github.com/cdcepi/FluSight-forecasts) run by the CDC. All data and the repository structure have been formatted according to [hubverse](https://hubverse.io/) standards.
+
+The purpose of this hub is to provide a sandbox environment for training, research or benchmarking purposes.
 
 ## Short-term forecasts of outpatient influenza-like illness (ILI) cases
 
-Predictions are quantile forecasts of weighted ILI percentage, converted from the original CDF forecasts for the same target. This hub is set up to receive new forecast submissions for educational purposes.
+Predictions are quantile forecasts of weighted influenza-like illness (ILI) percentage, converted from the original CDF forecasts for the same target. This hub is set up to receive new forecast submissions for educational purposes.
 
-**Dates:** The Challenge Period ran for five respiratory virus seasons (2015-2019). There are no restrictions on the time frame when submissions of retrospective forecasts for any of these dates may be received.
+**Dates:** The Challenge Period ran for five respiratory virus seasons (2015-2019). Forecasts may be submitted for any of the original submission dates.
 
 **Prediction Targets:**
 Participants are asked to provide national and/or jurisdiction-specific (10 HHS regions) retrospective quantile forecasts for weighted ILI percentage.
